@@ -1,42 +1,43 @@
 import random
 
 
-def InRanNumList():
-    List = []
-    for i in range(10):
+def InRanNumList(List):
+    for i in range(5):
         randomNumber = random.randint(0,100)
         List.append(randomNumber)
     List.sort()
-    
-    return List, randomNumber
+    print(*List, sep = ", ")
 
-    # print(*List, sep = ", ")
-
-def generateKeyNumber():
-    List, randomNumber = InRanNumList() 
+def generateKeyNumber(List): 
     key = random.randint(0, len(List)) 
     print(f'{List[key]} indexed at {key}')  
-    return key
 
-def BinSearch():
+def BinSearch(List, key):
+
     lengthList = len(List)
-    middle = (lengthList / 2) - 1
-    middle = int(middle)
-    high = lengthList - 1
+    low = 0
+    high = lengthList - 1 # Index format
 
-    # if (key == middle):
-    #     return
+    while low <= high:
+        mid = low + (high - low) // 2
+        if List[mid] == key:
+            return mid
+        elif List[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
+    
 
 
 def main():
-    
     randList = []
-    InRanNumList()
-    generateKeyNumber()
-    # BinSearch(randList)
-    
 
-    # print(f'{randList[int(middle)]} indexed at {middle}') 
+    InRanNumList(randList)
+    userKey = generateKeyNumber(randList)
+    result = BinSearch(randList, userKey)
+
+    
+    
     
 
 
