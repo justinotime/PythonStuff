@@ -11,9 +11,7 @@ def InRanNumList(List):
     print("Unsorted: " + str(List))
 
 
-def InsertionSort(List):
-    i = 0
-    j = 0
+def InsertionSortInterleaved(List):
     temp = 0
     sizeList = len(List)
     for i in range(sizeList):
@@ -39,5 +37,11 @@ if __name__ == "__main__":
     main()
 
 
-# 22 58 92 70 36 15 98 81 90 82
+"""
+38, 12, 55, 33, 29, 14, 72, 47, 54
+
+Gap Value 4: 29, 12, 55, 33, 38, 14, 72, 47, 54
+Gap Value 3: 33, 12, 14, 38, 29, 54, 72, 47, 55
+
+"""
 
